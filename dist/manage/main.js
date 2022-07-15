@@ -68,7 +68,7 @@ let newData ;
         console.log(parseInt(b) , name ,kind)
         return  parseInt(a[name])-parseInt(b[name])}) 
      : data.sort((a ,b) => {return  parseInt(b[name])-parseInt(a[name])}) ;
-console.log(newData)
+       renderManage(data)
    main()
 }
 const elementManage =  document.getElementById("manage") ; 
@@ -161,8 +161,10 @@ arrinput.onsubmit = (e)=>{
     }
     console.log(newDataS)
   food.setFood(newDataS)
-  mess.setMess("Add food success")
-  renderManage(food.getFood())
+  mess.setMess("Add food success") ; 
+  data =
+  food.getFood() === null ? [] :food.getFood() ;
+ main()
  
   const elementAdd = document.getElementById("formadd") ; 
   
@@ -181,6 +183,7 @@ const addDis = ()=>{
   }
 }
 function main(){
+  
     renderManage(data)
 setE(); ;
 addDis()
