@@ -83,7 +83,7 @@ const setEventPay= ()=>{
      element.onclick = (e)=>{
          
         const idFood = e.target.attributes["id-value"].value ; 
-        food.getFood().forEach(element => {
+       (food.getFood()).forEach(element => {
          if(element.id === idFood){
             element.quantities = 1;
             pay.setAll([element])
