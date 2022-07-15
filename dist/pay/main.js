@@ -1,8 +1,8 @@
 const food = new Food() ; 
 const pay = new Pay();
 const mess = new Mess(); 
-let listPay = [];
-listPay = pay.getPay() ; 
+let listPay = pay.getPay()  === null ?  []  : pay.getPay();
+ 
 const renderList = (list)=>{
     
     const elementPay =  document.getElementById("pay") ; 

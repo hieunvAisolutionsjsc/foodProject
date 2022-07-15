@@ -5,7 +5,7 @@ const cart = new Cart();
 food.setLocal() ; 
 const mess = new Mess() ; 
  const pay = new Pay()       
-listFood = food.getFood();
+listFood = food.getFood() === null ? [] : food.getFood();
 const renderList = (listFood)=>{
       const elementContainer = document.getElementById("listfood") ; 
       let render = "" ;
@@ -65,7 +65,7 @@ const setEventAddCart = ()=>{
             element.onclick = (e)=>{
                 
                const idFood = e.target.attributes["id-value"].value ; 
-              listFood.forEach(element => {
+              food.getFood().forEach(element => {
                 if(element.id === idFood){
                    console.log(element)
                    cart.setCart(element);
@@ -83,7 +83,7 @@ const setEventPay= ()=>{
      element.onclick = (e)=>{
          
         const idFood = e.target.attributes["id-value"].value ; 
-       listFood.forEach(element => {
+        food.getFood().forEach(element => {
          if(element.id === idFood){
             element.quantities = 1;
             pay.setAll([element])
@@ -98,7 +98,9 @@ function main(){
     setTimeout(()=>{
         renderList(food.getFood());
         setEventAddCart() ;
-        setEventPay()
+        setEventPay();
+        
+       
     } , 1000)
     pickKindFood() ;
     document.getElementById("loadmore").onclick = (e)=>{
@@ -107,9 +109,10 @@ function main(){
        setEventAddCart() ;
         setEventPay()
     }
-    
+   
 }
-main()
-main()
+
+main();
+
 
 
