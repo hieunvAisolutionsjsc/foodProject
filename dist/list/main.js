@@ -104,7 +104,11 @@ function main(){
     document.getElementById("loadmore").onclick = (e)=>{
        numberDis = numberDis+1 ; 
        renderList(food.getFood());
+       setEventAddCart() ;
+        setEventPay()
     }
+    setEventAddCart() ;
+        setEventPay()
 }
 main()
 
