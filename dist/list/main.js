@@ -107,8 +107,9 @@ function main(){
        setEventAddCart() ;
         setEventPay()
     }
-    main()
+    
 }
+main()
 main()
 
 
