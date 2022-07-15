@@ -98,8 +98,8 @@ element.onclick = (e)=>{
 food.getFood().forEach(element => {
   if(element.id === idFood){
      element.quantities = 1;
-     pay.setAll([element])
-     window.open("../pay/index.html")
+     pay.setAll([element]);
+     window.open("../pay/index.html") ; 
             
   }
 });
