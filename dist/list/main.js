@@ -87,7 +87,7 @@ const setEventPay= ()=>{
          if(element.id === idFood){
             element.quantities = 1;
             pay.setAll([element])
-            window.open("http://192.168.1.8:5500/dist/pay/index.html")
+            window.open("https://hieunvaisolutionsjsc.github.io/foodProject/dist/pay/index.html")
                    
          }
        });
