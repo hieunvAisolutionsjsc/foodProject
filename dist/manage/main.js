@@ -162,7 +162,7 @@ arrinput.onsubmit = (e)=>{
     console.log(newDataS)
   food.setFood(newDataS)
   mess.setMess("Add food success")
-  main()
+  renderManage(food.getFood())
  
   const elementAdd = document.getElementById("formadd") ; 
   

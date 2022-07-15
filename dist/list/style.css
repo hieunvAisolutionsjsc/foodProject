@@ -186,7 +186,7 @@ border: none;
     right: 0;
     width: 100vw;
     height: 100vh;
-    transform: translateY(1000px);
+    transform: translateY(-1000px);
     transition: all .3s ease-in-out;
 }
 .mess > .container{

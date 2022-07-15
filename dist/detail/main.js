@@ -1,6 +1,8 @@
 let foodInfor;
-
+const pay = new Pay();
+const cart = new Cart()
 const food = new Food();
+const mess = new Mess();
 const getFood = ()=>{
     const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('foodid');
@@ -75,7 +77,7 @@ const setEventAddCart = ()=>{
      element.onclick = (e)=>{
          
         const idFood = e.target.attributes["id-value"].value ; 
-       listFood.forEach(element => {
+       food.getFood().forEach(element => {
          if(element.id === idFood){
             console.log(element)
             cart.setCart(element);
@@ -93,7 +95,7 @@ listBtnAddCart.forEach(element => {
 element.onclick = (e)=>{
   
  const idFood = e.target.attributes["id-value"].value ; 
-listFood.forEach(element => {
+food.getFood().forEach(element => {
   if(element.id === idFood){
      element.quantities = 1;
      pay.setAll([element])
