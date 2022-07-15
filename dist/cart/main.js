@@ -1,7 +1,7 @@
 const food = new Food() ; 
 const cart = new Cart();
 const pay = new Pay();
-let listCart = cart.getCart() ; 
+let listCart =  cart.getCart() === null ? [] :cart.getCart() ; 
 
 const renderCart = (list)=>{
         const elementCart =  document.getElementById("cart") ; 

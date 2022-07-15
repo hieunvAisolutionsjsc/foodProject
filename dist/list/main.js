@@ -50,7 +50,9 @@ const pickKindFood = (kind)=>{
             const value = element.attributes["value-id"].value ; 
          listFood = food.getFoodByKind(value) ;
          console.log(listFood)
-         renderList(listFood)
+         renderList(listFood);
+         setEventAddCart() ;
+        setEventPay()
         }
         
     });
@@ -92,15 +94,18 @@ const setEventPay= ()=>{
      }
     });
 }
-
-setTimeout(()=>{
-    renderList(food.getFood());
-    setEventAddCart() ;
-    setEventPay()
-} , 1000)
-pickKindFood() ; 
-document.getElementById("loadmore").onclick = (e)=>{
-   numberDis = numberDis+1 ; 
-   renderList(food.getFood());
+function main(){
+    setTimeout(()=>{
+        renderList(food.getFood());
+        setEventAddCart() ;
+        setEventPay()
+    } , 1000)
+    pickKindFood() ;
+    document.getElementById("loadmore").onclick = (e)=>{
+       numberDis = numberDis+1 ; 
+       renderList(food.getFood());
+    }
 }
+main()
+
 
