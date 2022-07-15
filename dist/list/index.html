@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Getting Started</title>
+    <script src="https://unpkg.com/lodash@4.17.20"></script>
+    <link rel="stylesheet" href="./style.css">
+    
+  </head>
+  <body>
+    <nav>
+        <div class="container">
+        <a href="../list/index.html">Home</a>
+        <a href="../cart/index.html">Cart</a>
+        <a href="../manage/index.html">Manage</a>
+    </div>
+    </nav>
+
+  <div class="category"> 
+        <h1>Danh mục</h1>
+        <div class="container">
+            <div class="category__item" value-id="a">
+                <p>Món Ăn Á</p>
+                <div class="category__item--img">
+                    <img src="../img/danhmuc/a.jpg" alt="">
+                </div>
+            </div>
+            <div class="category__item" value-id="au">
+                <p>Món Ăn Âu</p>
+                <div class="category__item--img">
+                    <img src="../img/danhmuc/au.jpg" alt="">
+                </div>
+            </div>
+            <div class="category__item" value-id="dch">
+                <p>Món Ăn Địa Trung Hải</p>
+                <div class="category__item--img">
+                    <img src="../img/danhmuc/dch.jpg" alt="">
+                </div>
+            </div>
+            <div class="category__item" value-id="tq">
+                <p>Món Ăn Trung Quốc </p>
+                <div class="category__item--img">
+                    <img src="../img/danhmuc/tq.jpg" alt="">
+                </div>
+            </div>
+            <div class="category__item" value-id="nb">
+                <p>Món Ăn Nhật Bản</p>
+                <div class="category__item--img">
+                    <img src="../img/danhmuc/nhat.jfif" alt="">
+                </div>
+            </div>
+            <div class="category__item" value-id="tl">
+                <p>Món Ăn Thái</p>
+                <div class="category__item--img">
+                    <img src="../img/danhmuc/thai.png" alt="">
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    <div class="foodlist">
+        <p>Danh Sách Đồ Ăn</p>
+        <div class="container" id="listfood">
+       
+        </div>
+    </div>
+    <div class="loadmore" id="loadmore">
+    <button>Load More</button>
+</div>  
+<div class="mess" id="mess">
+ 
+</div>
+<script src="../../src/pay.js"></script>
+<script src="../../src/mess.js"></script>
+<script src="../../src/cart.js"></script>
+<script src="../../src/food.js"></script>
+<script src="./main.js"></script>
+  </body>
+</html>
