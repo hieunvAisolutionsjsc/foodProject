@@ -93,6 +93,10 @@ button{
     max-height: 150px;
     overflow-y: scroll;
 }
+.fooddetail__content--rate  > p{
+     color: rgb(247, 126, 122);
+     font-weight: 600;
+}
 .addcart{
     margin-top: 2rem;
 }

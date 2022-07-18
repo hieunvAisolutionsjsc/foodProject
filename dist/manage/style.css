@@ -42,22 +42,112 @@ margin-bottom: 0px  !important;
         /* display: flex;
         justify-content: space-between; */
     }
+   .sort-icon{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+position: relative;
+right: 0;
+
+margin-top: -1.3rem;
+margin-left: auto;
+margin-right: 1rem;
+   }
+   #sortname > img{
+    display: none !important;
+   }
+   #sortname.in > img:nth-of-type(3){
+    display: block !important;
+   }
+   #sortname.re > img:nth-of-type(2){
+    display: block !important;
+   }
+   #sortname.none > img:nth-of-type(1){
+    display: block !important;
+   }
+   /*  */
+   #sortrate > img{
+    display: none !important;
+   }
+   #sortrate.in > img:nth-of-type(3){
+    display: block !important;
+   }
+   #sortrate.re > img:nth-of-type(2){
+    display: block !important;
+   }
+   #sortrate.none > img:nth-of-type(1){
+    display: block !important;
+   }
+   /*  */
+   #sortde > img{
+    display: none !important;
+   }
+   #sortde.in > img:nth-of-type(3){
+    display: block !important;
+   }
+   #sortde.re > img:nth-of-type(2){
+    display: block !important;
+   }
+   #sortde.none > img:nth-of-type(1){
+    display: block !important;
+   }
+   /*  */
+   #sortprice > img{
+    display: none !important;
+   }
+   #sortprice.in > img:nth-of-type(3){
+    display: block !important;
+   }
+   #sortprice.re > img:nth-of-type(2){
+    display: block !important;
+   }
+   #sortprice.none > img:nth-of-type(1){
+    display: block !important;
+   }
+   /*  */
+   .loadmore{
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+}
+.loadmore > button{
+    background: rgb(0, 109, 252);
+    font-size: 1.2rem;
+    padding: .6rem 1.5rem;
+color: #fff;
+border-radius: 4px;
+border: none;
+
+}
+   .sort-icon  >img{
+    position: absolute;
+    display: none;
+   }
+  
     .manage > .container > div >table td, .manage > .container > table th {
         border: 1px solid #ddd;
         padding: 8px;
       }
-      .manage > .container > div >table th{}
-    
+      .manage__item--img > p{
+        text-align: center ;
+      }
+      .manage__item--img > p{
+        text-align: center !important;
+      }
       .manage > .container > div >table tr >td:nth-of-type(3) > p{
         text-overflow: ellipsis;
-      
+        width: 139px;
+      }
+      .manage > .container > div >table tr >td:nth-of-type(5) > p{
+        text-overflow: ellipsis;
+        width: 139px;
+        text-align: right;
       }
       .manage > .container >  div > table tr:nth-child(1) > th{
         text-align: center;
       }
-      .manage > .container > div> table p{
-        text-align: center;
-      }
+      
     .manage > .container >  div > table tr:nth-child(even){background-color: #f2f2f2;}
     
     .manage > .container > div >table  tr:hover {background-color: #ddd;}
@@ -65,7 +155,7 @@ margin-bottom: 0px  !important;
     .manage > .container > div > table th {
       padding-top: 12px;
       padding-bottom: 12px;
-      text-align: left;
+      /* text-align: left; */
       background-color: #04AA6D;
       color: white;
     }
@@ -144,6 +234,9 @@ margin-bottom: 0px  !important;
 .foodlist__item--rate{
   display: flex;
   
+}
+.manage__item > td >p{
+  text-align: left;
 }
 .foodlist__item--rate img{
   width: 20px;

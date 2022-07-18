@@ -1,92 +1,162 @@
 const food = new Food() ; 
 const cart = new Cart();
 const pay = new Pay();
-const mess = new Mess()
+const mess = new Mess();
+let display = 1 ; 
 food.setLocal()
 let data =
            food.getFood() === null ? [] :food.getFood() ;
+let sortName = "none" ; 
+let sortDe = "none" ; 
+let sortPrice = "none" ; 
+let sortRate = "none";
 const renderManage = (list)=>{
     const elementManage =  document.getElementById("manage") ; 
+    const elementLoadMore = document.getElementById("loadmore");
+    if(list.length <= 20*display){
+        elementLoadMore.style.display ="none" ; 
+    }else{
+        elementLoadMore.style.display ="block" ; 
+    }
     let render =`
     <tr>
-        <th>STT  </th>
+        <th>STT</th>
         <th>Image</th>
-        <th>Name  
+        <th>Name <div class="sort-icon ${sortName}" id="sortname">
+        <img src="../img/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+        <img src="../img//up-arrow.png" alt="">
+        <img src="../img/down-arrow.png" alt=""> 
+        </div>
             </th>
-        <th>Describe </th>
-        <th>Price<select name="price" id="price">
-        <option value="none">...</option>
-            <option value="re">high to low</option>
-            <option value="in">Low to high</option>
-        </select></th>
+        <th>Describe
+        <div class="sort-icon ${sortDe}" id="sortde">
+        <img src="../img/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+        <img src="../img//up-arrow.png" alt="">
+        <img src="../img/down-arrow.png" alt=""> 
+        </div>
+        </th>
+        <th>Price
+        <div class="sort-icon ${sortPrice}" id="sortprice">
+        <img src="../img/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+        <img src="../img//up-arrow.png" alt="">
+        <img src="../img/down-arrow.png" alt=""> 
+        </div>
+        </th>
+      
+        </div>
             <th>Rate
-            <select name="rate" id="rate">
-        <option value="none">...</option>
-            <option value="re">high to low</option>
-            <option value="in">Low to high</option>
-        </select>
+            <div class="sort-icon ${sortRate}" id="sortrate">
+            <img src="../img/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+            <img src="../img//up-arrow.png" alt="">
+            <img src="../img/down-arrow.png" alt=""> 
+            </div>
         </th>
        </tr>`;
     if (list.length === 0) {
        elementManage.innerHTML = "<h2>You have no food </h2>" 
     }
     else{
-        list.forEach((element , index) => {
-            const {imgsmail , rate, id ,   dc2 , name   , price} = element
-            render+=`  
-             <tr class="manage__item">
-             <td class="manage__item--img">
-                <p>${index}</p>
-            </td>
-            <td class="manage__item--img">
-                <img src="${imgsmail}" alt="">
-            </td>
-            <td><p>${name} </p></td>
-             <td >
-               
-                <p>${dc2}</p>
-               
-            </td>
-            <td><p>${price}VND</p></td>
-            <td><div class="rate price">
-                <div class="foodlist__item--rate">
-                    <p>${rate}</p>
-                    <img src="../img/star.png" alt="">
+        for (let index = 0; index < 20*display; index++) {
+            if(list[index]){
+                const element = list[index];
+            
+                let renderRate = "";
+                for (let index = 0; index < element.rate; index++) {
+                    renderRate+= `<img src="../img/star.png" alt="">`
+       }
+                const {imgsmail , rate, id ,   dc2 , name   , price} = element ; 
+                
+                render+=`  
+                 <tr class="manage__item">
+                 <td class="manage__item--img">
+                    <p>${index+1}</p>
+                </td>
+                <td class="manage__item--img">
+                    <img src="${imgsmail}" alt="">
+                </td>
+                <td><p>${name} </p></td>
+                 <td >
+                   
+                    <p>${dc2}</p>
+                   
+                </td>
+                <td><p>${price}VND</p></td>
+                <td><div class="rate price">
+                    <div class="foodlist__item--rate">
+                        ${renderRate}
+                    </div>
+                   
                 </div>
-               
-            </div>
-        </td>
-        </tr>`
-        });
+            </td>
+            </tr>`
+            }
+           
+        
+        }
+        
         elementManage.innerHTML = render;
     }
   
 }
 const sortItem = (name , kind , data)=>{
+    console.log(data)
 let newData ;
+if(name ==="name" || name === "dc2"){
+    newData =  kind === "in"   ? data.sort((a, b) => a[name].localeCompare(b[name]))
+                                : data.sort((a, b) => b[name].localeCompare(a[name]));
+}
      newData =  kind === "in"   ? data.sort((a ,b) => {
-        console.log(parseInt(b) , name ,kind)
+        
         return  parseInt(a[name])-parseInt(b[name])}) 
      : data.sort((a ,b) => {return  parseInt(b[name])-parseInt(a[name])}) ;
-       renderManage(data)
+     renderManage(data)
    main()
 }
 const elementManage =  document.getElementById("manage") ; 
 const listSelect = [...elementManage.getElementsByTagName("select")] ;
 
-function setE(){
-    document.getElementById("rate").onchange =(e)=>{
-        sortItem("rate" , e.target.value ,data) ; 
-        
+function setEventSort(){
+   
+    const elementSortName = document.getElementById("sortname") ; 
+    const elementSortDe = document.getElementById("sortde") ;
+    const elementSortPrice = document.getElementById("sortprice") ;
+    const elementSortRate = document.getElementById("sortrate") ;
+
+    elementSortName.onclick = (e)=>{
+        sortName = sortName === "re"   ? "in" : "re" ; 
+     
+          sortDe = "none" ; 
+          sortPrice = "none" ; 
+          sortRate = "none";
+        sortItem("name" , sortName , data)
     }
-    document.getElementById("price").onchange =(e)=>{
-        console.log(data)
-        sortItem("price" , e.target.value , data )
+    elementSortDe.onclick = (e)=>{
+        sortDe = sortDe === "re"   ? "in" : "re" ; 
+        sortName = "none" ; 
+        sortPrice = "none" ; 
+        sortRate = "none";
+        sortItem("dc2" , sortDe , data)
+    }
+    elementSortPrice.onclick = (e)=>{
+         sortName = "none" ; 
+         sortDe = "none" ; 
+         sortRate = "none";
+        sortPrice = sortPrice === "re"   ? "in" : "re" ; 
+        sortItem("price" , sortPrice , data)
+    }
+    elementSortRate.onclick = (e)=>{
+        
+        sortRate = sortRate === "re"   ? "in" : "re" ; 
+        sortName = "none" ; 
+         sortDe = "none" ; 
+         sortPrice = "none" ; 
+        sortItem("rate" , sortRate , data)
     }
 }
 const search = ()=>{
      const elementSearch = document.getElementById("search") ;
      const elementSearchF = document.getElementById("searchform") ;
+     console.log(elementSearch)
      elementSearchF.onsubmit = (e)=>{
         e.preventDefault()
      }
@@ -183,9 +253,17 @@ const addDis = ()=>{
   }
 }
 function main(){
+    document.getElementById("loadmore").onclick = (e)=>{
+        display = display+1 ; 
+       
   
+        renderManage(data);
+        setEventSort(); ;
+        addDis()
+        search()
+     }
     renderManage(data)
-setE(); ;
+setEventSort(); ;
 addDis()
 search()
 }

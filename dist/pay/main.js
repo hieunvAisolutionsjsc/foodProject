@@ -49,10 +49,10 @@ const renderPay = ()=>{
      });
 console.log(quantities , payment);
 render+=` <div class="totalpay">
-<p> total pay  : ${payment}VND</p>
+<p> Total pay  : ${payment}VND</p>
 </div>
 <div class="totalitem">
-<p>total food : ${quantities}</p>
+<p>Total food : ${quantities}</p>
 </div>`
        elementPayTop.innerHTML = render;
 }

@@ -93,6 +93,13 @@ img{
     
         width: fit-content;
     margin: 3rem auto;
+    margin-top : 5rem;
+    }
+    .remove{
+        width: 40px;
+        border: navajowhite;
+        margin-left: 1rem;
+        background: none;
     }
     .pay > button{
         background: rgb(0, 109, 252);
@@ -102,14 +109,6 @@ img{
     border-radius: 4px;
     border: none;
     
-    }
-    @media only screen and (max-width: 528px){
-        .cart > .container{
-            font-size: 10px;
-        }
-        .cart > .container button{
-            font-size: 1rem;
-        }
     }
     nav > .container{
         max-width: 1000px;
@@ -131,3 +130,48 @@ img{
  
    background: rgb(78, 167, 226);
  }
+ .total{
+    max-width: 1000px;
+    margin:  0 auto;
+    margin-top: 2rem;
+    
+ }
+ .total > p{
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #04AA6D;
+    
+ }
+ .total > p:nth-of-type(2){
+    margin: 0 2rem;
+ }
+    .cart__item > td:nth-of-type(2) > p{
+        text-align: left !important;
+    }
+    .cart__item > td:nth-of-type(3) > p{
+        text-align: right !important;
+    }
+    @media only screen and (max-width: 700px){
+        .total > p{
+            float: right;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #04AA6D;
+            
+         }
+         .total{
+            max-width: 1000px;
+            
+            margin-right: 1rem;
+            
+         }
+    }
+    @media only screen and (max-width: 528px){
+        .cart > .container{
+            font-size: 10px;
+        }
+        .cart > .container button{
+            font-size: 1rem;
+        }
+    }

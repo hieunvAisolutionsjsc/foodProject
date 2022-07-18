@@ -5,6 +5,9 @@ let listCart =  cart.getCart() === null ? [] :cart.getCart() ;
 
 const renderCart = (list)=>{
         const elementCart =  document.getElementById("cart") ; 
+        const elementTotal = document.getElementById("total") ; 
+        let sl = 0  ; 
+        let money = 0 ; 
         let render =`
         <tr>
          <th>Ảnh</th>
@@ -16,7 +19,7 @@ const renderCart = (list)=>{
            elementCart.innerHTML = "<h2>You have no food </h2>" 
         }
         else{
-            list.forEach(element => {
+            list.forEach((element , index) => {
                 const {imgsmail  ,quantities, id , name  , price} = element
                 render+=`  <tr class="cart__item">
                 <td class="cart__item--img">
@@ -26,13 +29,21 @@ const renderCart = (list)=>{
                 
                 <td><p>${price}VND</p></td>
                 <td class="cart__item--quatities">
-                    <button class="increase" value-id ="${id}">+</button>
+                <button class="reduce" value-id ="${id}">-</button>
                     <p>${quantities}</p>
-                    <button class="reduce" value-id ="${id}">-</button>
+                    <button class="increase" value-id ="${id}">+</button>
+                    <button class="remove" value-id ="${id}"><img src="../img/trash_bin.png" value-id ="${id}"  > </button>
                 </td>
             </tr>`
+             sl +=quantities ; 
+             money+=(quantities*price)
             });
             elementCart.innerHTML = render;
+            elementTotal.innerHTML = ` <div class="total" id="total">
+            <p>Số Món : ${list.length}</p>
+            <p>Số lượng : ${sl}</p>
+            <p>Tổng Tiền : ${money}</p>
+        </div>`
         }
       
 }
@@ -44,8 +55,9 @@ const setEventQuantities = ()=>{
         element.addEventListener("click" , (e)=>{
             const id = e.target.attributes["value-id"].value;
             listCart =  listCart.map(item => item.id === id ? {...item , quantities : item.quantities+1} : item);
-            main()
             cart.setAll(listCart) ; 
+            main()
+           
             console.log(e);
             console.log(listCart)
         })
@@ -54,11 +66,15 @@ const setEventQuantities = ()=>{
         element.addEventListener("click" , (e)=>{
             const id = e.target.attributes["value-id"].value;
             listCart =  listCart.map(item => item.id === id ? {...item , quantities : item.quantities-1} : item);
+
             listCart = listCart.filter(item => item.quantities  > 0)
+            cart.setAll(listCart)
             main()
-            cart.setAll(listCart) ; 
+            
+           
+            
             console.log(e);
-            console.log(listCart)
+          
         })
     });
 }
@@ -67,11 +83,24 @@ const setListPay = ()=>{
                  pay.setAll(listCart)
     }
 }
+const setEventRemove= ()=>{
+    const listElementRemove= [...(document.getElementsByClassName("remove"))] ; 
+    console.log(listElementRemove);
+    listElementRemove.forEach(item =>{
+        item.onclick = (e)=>{
+            const id = e.target.attributes["value-id"].value;
+            cart.remove(id);
+            main()
+        }
+    })
+}
 function main(){
+    listCart =  cart.getCart() === null ? [] :cart.getCart() ; 
     renderCart(listCart);
 
     setEventQuantities();
     setListPay()
+    setEventRemove();
     
 }
 main()

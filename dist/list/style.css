@@ -37,11 +37,12 @@ button{
 
 .category__item{
 
-     height: 70px;
+     height: 150px;
+     width: 200px;
     overflow: hidden;
     border-radius: 10px;
     position: relative;
-    box-shadow: 3px 3px 10px;
+    box-shadow: 3px 3px 15px;
     background: rgb(85, 92, 80);
     z-index: 100;
     cursor: pointer;
@@ -62,17 +63,23 @@ button{
 transform: translateX(200px);
  transition: all .3s ease-in-out;
 }
-
+.ca-active .category__item--img {
+    transform: translateX(200px);
+     transition: all .3s ease-in-out;
+    }
+.ca-active{
+    box-shadow: none !important;
+}
 .foodlist{
 
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
     padding: 1rem 1rem;
 }
 .foodlist > .container{
     display: grid;
-    grid-template-columns:   repeat(4,1fr);
+    grid-template-columns:   repeat(5,1fr);
     gap: 16px;
 }
 .foodlist > p{
@@ -90,7 +97,7 @@ transform: translateX(200px);
 }
 .foodlist__item > p:nth-of-type(1){
   margin-top: 1rem;
-  text-align: center;
+  text-align: left;
   font-size: 1.5rem;
   font-weight: 600;
 
@@ -119,6 +126,10 @@ transform: translateX(200px);
    align-items: center;
    padding: 1rem;
 }
+.rate.price > p{
+    font-weight: 600;
+    color: rgb(252, 63, 63);
+}
 .foodlist__item--rate {
     display: flex;
     justify-items: center;
@@ -126,7 +137,10 @@ transform: translateX(200px);
 }
 .foodlist__item--rate > img{
     margin-top: -2px;
-    width: 20px !important;
+    width: 15px !important;
+}
+.dic{
+    padding-top: 9px;
 }
 .pay{
 
@@ -216,6 +230,11 @@ border: none;
     width: 50px;
 }
 /* reponsive */
+@media only screen and (max-width: 1000px) {
+    .foodlist > .container{
+        grid-template-columns: repeat(4,1fr) !important;
+    }
+}
 @media only screen and (max-width: 950px) {
     .foodlist > .container{
         grid-template-columns: repeat(3,1fr) !important;
@@ -225,6 +244,21 @@ border: none;
     .foodlist > .container{
         grid-template-columns: repeat(2,1fr) !important;
     }
+    .category__item{
+
+        height: 100px;
+        width: 150px;
+ 
+   }
+}
+@media only screen and (max-width: 550px) {
+    
+    .category__item{
+
+        height: 100px;
+        width: 100px;
+ 
+   }
 }
 @media only screen and (max-width: 500px) {
     .foodlist > .container{

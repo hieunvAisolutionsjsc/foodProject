@@ -12,4 +12,12 @@ class Cart{
     setAll(arr){
         localStorage.setItem("cart" , JSON.stringify(arr)) 
     }
+    remove(id){
+        const list = this.getCart() ; 
+        const newList = list.filter(element =>{
+            return element.id !== id;
+        })
+        this.setAll(newList) ; 
+       
+    }
 }

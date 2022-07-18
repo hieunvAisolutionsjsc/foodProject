@@ -19,7 +19,12 @@ const renderFood = () => {
             const elementFoodDetail = document.getElementById("fooddetail") ; 
             let render = "" ;
             const {imgbig , name , rate , restaurant , dc2  , price , id} = foodInfor ; 
-
+            let renderRate = "" ; 
+         
+            for (let index = 0; index < rate; index++) {
+                         renderRate+= `<img src="../img/star.png" alt="">`
+               
+            }
             render = ` <div class="fooddetail__img">
             <img src="${imgbig}" alt="">
         </div>
@@ -27,8 +32,7 @@ const renderFood = () => {
             <p>${name}</p>
                 <div class="fooddetail__content--rate fooddetail__content--price">
                     <div class="fooddetail__content--rate item">
-                        <p>${rate}</p>
-                        <img src="../img/star.png" alt="">
+                       ${renderRate}
                     </div>
                     <p>${price} VND</p>
                 </div>
