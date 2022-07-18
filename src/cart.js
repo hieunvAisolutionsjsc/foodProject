@@ -3,6 +3,9 @@ class Cart{
     getCart(){
         return JSON.parse(localStorage.getItem("cart")) ; 
     }
+    clearCart(){
+        this.setAll([]);
+    }
     setCart(cartItem){
         let cartList = this.getCart() === null ? [] :  this.getCart() ; 
         cartItem.quantities = 1 ; 

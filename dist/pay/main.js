@@ -1,6 +1,7 @@
 const food = new Food() ; 
 const pay = new Pay();
 const mess = new Mess(); 
+const cart = new Cart(); 
 let listPay = pay.getPay()  === null ?  []  : pay.getPay();
  
 const renderList = (list)=>{
@@ -117,5 +118,9 @@ elementQh.onchange = (e)=>{
 renderList(listPay)
 renderPay() ;
 document.getElementById("paybtn").onclick = (e)=>{
-    mess.setMess("Pay done")
+    cart.clearCart()
+    mess.setMess("Pay done");
+    setTimeout(() => {
+        window.open("../list/index.html")
+    }, 3000);
   }
