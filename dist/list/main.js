@@ -165,7 +165,7 @@ function main(){
     pickKindFood() ;
     document.getElementById("loadmore").onclick = (e)=>{
        numberDis = numberDis+1 ; 
-       renderList(listFood);
+       renderList(food.getFood());
        setEventAddCart() ;
         setEventPay()
     }

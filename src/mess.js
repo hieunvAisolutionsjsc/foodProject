@@ -16,6 +16,6 @@ class Mess {
     
         const time =  setInterval(()=>{
             document.getElementById("mess").classList.remove("mess__active") ; 
-         } , 2000)
+         } , 3000)
     }
 }
